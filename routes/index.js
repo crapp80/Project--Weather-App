@@ -5,7 +5,7 @@ const weatherController = require('../controllers/weatherController.js');
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', weatherController.getWeather, weatherController.homePage);
+router.get('/', weatherController.getWeather);
 
 router.post('/', weatherController.getWeather);
 

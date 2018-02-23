@@ -4,13 +4,6 @@ const random = require('random-world');
 const lookup = require('country-code-lookup');
 const _ = require('lodash');
 
-
-const title = 'Node Weather App';
-
-module.exports.homePage = (req, res) => {
-  res.render('index', { title });
-};
-
 module.exports.getWeather = (req, res) => {
   const { location } = req.body;
   const mapquestKey = 'yDl8NlyYiE4z97XIDqAELIFIFm6kCBZN';
@@ -35,7 +28,11 @@ module.exports.getWeather = (req, res) => {
           locationCountry: locationCountry.country,
         };
         console.log(weatherData);
-        res.render('index', { title, weatherData });
+        res.render('index', {
+          title: 'Hows the weather in ... ?',
+          message: 'A simple weather app, written in node.js',
+          weatherData,
+        });
       });
     })
     .catch((error) => {
