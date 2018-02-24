@@ -3,5 +3,13 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://fonts.googleapis.com/css?family=Nunito+Sans|Quattrocento+Sans" rel="stylesheet")
+
   body
-    block content
+    div.container
+      header
+        h1= title
+        h2= message
+      block content
+      footer
+        p Proudly made by Carsten Rapp - #{year}

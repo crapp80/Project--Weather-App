@@ -1,19 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p #{message}
-  div.container
-    header
-      main
-        div.formWrapper
-          form(id="form" method="post" action="/" role="form" enctype="application/x-www-form-urlencoded")
-            label(for="location" Enter location)
-            input(type="text" id="location" name="location" placeholder="leave empty for a random location")
-            input(type="submit" name="submit" value="Show me the weather")
-        div.weatherWrapper
-          p Location: #{weatherData.locationCity}, #{weatherData.locationCountry}
-          p #{weatherData.temp}° C
-          p Min. Temperature: #{weatherData.tempMin}° C | Max. Temperature #{weatherData.tempMax}° C
-          p Last weather update: #{weatherData.time}
-    footer
+  main
+    div.formWrapper
+      form(id="form" method="post" action="/" role="form" enctype="application/x-www-form-urlencoded")
+        label(for="location") Enter location
+        input(type="text" id="location" name="location" placeholder="Leave empty for a random location")
+        input(type="submit" name="submit" value="Show me the weather")
+    div.weatherWrapper
+      p Location: #{weatherData.locationCity}, #{weatherData.locationCountry}
+      p #{weatherData.temp}° C
+      img(src=`/images/icons/${weatherData.icon}.png` alt=`${weatherData.description}`)
+      p #{weatherData.description}
+      p (Last update: #{weatherData.time})
