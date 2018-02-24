@@ -4,9 +4,7 @@ const weatherController = require('../controllers/weatherController.js');
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', weatherController.getWeather);
-
-router.post('/', weatherController.getWeather);
+/* GET home page AND perform API calls. */
+router.all('/', weatherController.getWeather);
 
 module.exports = router;
