@@ -16,6 +16,9 @@ A simple Weather App using Node.js. App is still work in progress.
 - moment.js for time formatting (translating unix timestamps)
 - Lodash for some text transformation and Math
 
+## Deployment
+App is deployed to heroku, please follow this [link](https://mysterious-thicket-14701.herokuapp.com)
+
 ## To-Do
 - Testing!!
 - UX improvements!!
