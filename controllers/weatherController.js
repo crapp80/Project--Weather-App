@@ -29,7 +29,6 @@ module.exports.getWeather = (req, res) => {
           locationCity: response.data.name,
           locationCountry: locationCountry ? locationCountry.country : 'Country Code not found',
         };
-        console.log(weatherData);
         res.render('index', {
           title: 'How\'s the weather in ... ?',
           message: 'A simple weather app, written in node.js',
@@ -39,6 +38,6 @@ module.exports.getWeather = (req, res) => {
       });
     })
     .catch((error) => {
-      console.log(error);
+      throw new Error(error);
     });
 };
