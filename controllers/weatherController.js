@@ -17,7 +17,9 @@ module.exports.getWeather = (req, res) => {
       return axios.get(weatherUrl).then((response) => {
         const locationCountry = lookup.byIso(response.data.sys.country);
         const weatherData = {
-          description: response.data.weather[0].description,
+          description: _.startCase(_.camelCase(response.data.weather[0].description)),
+          icon: response.data.weather[0].icon,
+          main: response.data.weather[0].main,
           time: moment.unix(response.data.dt).format('ddd, MMM Do YYYY, HH:mm'),
           temp: _.round(response.data.main.temp, 1),
           tempMin: _.round(response.data.main.temp_min, 1),
@@ -25,12 +27,13 @@ module.exports.getWeather = (req, res) => {
           sunrise: moment.unix(response.data.sys.sunrise).format('HH:mm'),
           sunset: moment.unix(response.data.sys.sunset).format('HH:mm'),
           locationCity: response.data.name,
-          locationCountry: locationCountry.country,
+          locationCountry: locationCountry ? locationCountry.country : 'Country Code not found',
         };
         console.log(weatherData);
         res.render('index', {
-          title: 'Hows the weather in ... ?',
+          title: 'How\'s the weather in ... ?',
           message: 'A simple weather app, written in node.js',
+          year: moment().year(),
           weatherData,
         });
       });
