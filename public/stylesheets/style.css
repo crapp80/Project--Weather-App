@@ -1,6 +1,106 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+
+h1, h2 {
+  color: #f4f6f5;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.container {
+  display: grid;
+  width: 60vw;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-row-gap: 2rem;
+  background: #02325f;
+  margin: 5rem auto 0 auto;
+  font-size: 1.6rem;
+  border: 0.2rem solid #05729b;
+  border-radius: 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+main {
+  grid-area: main;
+  align-items: center;
+}
+
+label[for="location"] {
+  margin-left: 1rem;
+  color: #b1b5b7;
+}
+
+input[name="location"] {
+  width: 20rem;
+}
+
+input[name="submit"] {
+  background: #c51f5d;
+  border: 0.1px solid #c51f5d;
+  border-radius: 2rem;
+  font-size: 1.8rem;
+  padding: 1rem;
+  cursor: pointer;
+  color: #f4f6f5;
+}
+
+input::-moz-placeholder {
+  font-weight: bold;
+  width: auto;
+  color: #000;
+}
+
+.formWrapper {
+  text-align: center;
+}
+
+.formWrapper > form > input:first-of-type {
+  margin: 0 2rem 0 1rem;
+}
+
+.weatherWrapper {
+  margin-top: 2rem;
+  text-align: center;
+  color: #b1b5b7;
+}
+
+.weatherWrapper > p:nth-of-type(2) {
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
+.weatherWrapper > p:nth-of-type(4) {
+  font-size: 1.2rem;
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  color: #c51f5d;
+  margin-bottom: 2rem;
 }
 
 a {
